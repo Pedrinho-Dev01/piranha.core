@@ -57,6 +57,13 @@ public class Module : IModule
     {
         var mapperConfig = new MapperConfiguration(cfg =>
         {
+            cfg.CreateMap<Piranha.Data.Workflow, Piranha.Models.Workflow>()
+                .ReverseMap();
+
+            cfg.CreateMap<Piranha.Data.WorkflowStep, Piranha.Models.WorkflowStep>()
+                .ReverseMap();
+
+
             cfg.CreateMap<Data.Alias, Data.Alias>()
                 .ForMember(a => a.Id, o => o.Ignore())
                 .ForMember(a => a.Created, o => o.Ignore());
@@ -105,7 +112,9 @@ public class Module : IModule
                 .ForMember(p => p.Permalink, o => o.MapFrom(m => "/" + m.Slug))
                 .ForMember(p => p.Permissions, o => o.Ignore())
                 .ForMember(p => p.Blocks, o => o.Ignore())
-                .ForMember(p => p.CommentCount, o => o.Ignore());
+                .ForMember(p => p.CommentCount, o => o.Ignore())
+                .ForMember(p => p.Workflow, o => o.MapFrom(m => m.Workflow))
+                .ForMember(p => p.WorkflowId, o => o.MapFrom(m => m.WorkflowId));
             cfg.CreateMap<Models.PageBase, Data.Page>()
                 .ForMember(p => p.ContentType, o => o.Ignore())
                 .ForMember(p => p.PrimaryImageId, o => o.MapFrom(m => m.PrimaryImage != null ? m.PrimaryImage.Id : (Guid?)null ))
@@ -118,7 +127,9 @@ public class Module : IModule
                 .ForMember(p => p.Permissions, o => o.Ignore())
                 .ForMember(p => p.PageType, o => o.Ignore())
                 .ForMember(p => p.Site, o => o.Ignore())
-                .ForMember(p => p.Parent, o => o.Ignore());
+                .ForMember(p => p.Parent, o => o.Ignore())
+                .ForMember(p => p.Workflow, o => o.MapFrom(m => m.Workflow))
+                .ForMember(p => p.WorkflowId, o => o.MapFrom(m => m.WorkflowId));
             cfg.CreateMap<Data.Page, Models.SitemapItem>()
                 .ForMember(p => p.MenuTitle, o => o.Ignore())
                 .ForMember(p => p.Level, o => o.Ignore())

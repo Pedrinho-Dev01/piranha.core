@@ -34,4 +34,6 @@ public abstract class PostBase : RoutedContentBase, ICategorizedContent, ITagged
     /// Gets/sets the available tags.
     /// </summary>
     public IList<Taxonomy> Tags { get; set; } = new List<Taxonomy>();
+
+    
 }

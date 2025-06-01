@@ -8,6 +8,8 @@
  *
  */
 
+using Piranha.Models;
+
 namespace Piranha.Data;
 
 [Serializable]

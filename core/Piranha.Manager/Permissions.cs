@@ -17,7 +17,7 @@ public static class Permission
 {
     public const string Admin = "PiranhaAdmin";
 
-    public const string LegalTeam = "PiranhaLegalTeam";
+    public const string PiranhaLegalTeam = "PiranhaLegalTeam";
     public const string LegalTeamReview = "PiranhaLegalTeamReview";
     public const string LegalTeamDeny = "PiranhaLegalTeamDeny";
 
@@ -46,9 +46,7 @@ public static class Permission
     public const string MediaDeleteFolder = "PiranhaMediaDeleteFolder";
     public const string Modules = "PiranhaModules";
 
-    public const string Reviewer = "PiranhaReviewer";
-    public const string ReviewerStep1 = "PiranhaReviewerStep1";
-    public const string ReviewerStep2 = "PiranhaReviewerStep2";
+    public const string PiranhaReviewer = "PiranhaReviewer";
 
     public const string Pages = "PiranhaPages";
     public const string PagesAdd = "PiranhaPagesAdd";
@@ -67,6 +65,7 @@ public static class Permission
     public const string SitesDelete = "PiranhaSitesDelete";
     public const string SitesEdit = "PiranhaSitesEdit";
     public const string SitesSave = "PiranhaSitesSave";
+    public const string ContentReview = "PiranhaContentReview";
 
     public static readonly PermissionsStructure PermissionsStructure =
         // Admin Permission
@@ -82,11 +81,19 @@ public static class Permission
             new(Pages, new PermissionsStructure[] {new(PagesAdd), new(PagesDelete) , new(PagesEdit) , new(PagesPublish), new(PagesSave) }),
             new(Posts, new PermissionsStructure[] {new(PostsAdd), new(PostsDelete) , new(PostsEdit) , new(PostsPublish), new(PostsSave) }),
             new(Sites, new PermissionsStructure[] {new(SitesAdd), new(SitesDelete) , new(SitesEdit) , new(SitesSave) }),
+            new(Content, new PermissionsStructure[]
+                {
+                    new(ContentAdd),
+                    new(ContentEdit),
+                    new(ContentSave),
+                    new(ContentDelete),
+                    new(ContentReview),
+                }),
         });
 
     public static readonly PermissionsStructure LegalTeamPermissionsStructure =
         // Legal Team Permission
-        new(LegalTeam, new PermissionsStructure[]
+        new(PiranhaLegalTeam, new PermissionsStructure[]
         {
             new(LegalTeamReview),
             new(LegalTeamDeny)
@@ -94,17 +101,14 @@ public static class Permission
 
     public static readonly PermissionsStructure ReviewerPermissionsStructure =
         // Reviewer Permission
-        new(Reviewer, new PermissionsStructure[]
-        {
-            new(ReviewerStep1),
-            new(ReviewerStep2)
-        });
+        new(PiranhaReviewer);
+
 
     public static string[] All() {
-        return new [] {
+        return new[] {
             Admin,
 
-            LegalTeam,
+            PiranhaLegalTeam,
             LegalTeamReview,
             LegalTeamDeny,
 
@@ -133,9 +137,7 @@ public static class Permission
             MediaDeleteFolder,
             Modules,
 
-            Reviewer,
-            ReviewerStep1,
-            ReviewerStep2,
+            PiranhaReviewer,
 
             Pages,
             PagesAdd,
@@ -153,7 +155,8 @@ public static class Permission
             SitesAdd,
             SitesDelete,
             SitesEdit,
-            SitesSave
+            SitesSave,
+            ContentReview,
         };
     }
 }

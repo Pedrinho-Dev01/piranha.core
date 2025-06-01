@@ -20,7 +20,7 @@ public sealed class Module : IModule
     {
         new PermissionItem { Name = Permission.Admin, Title = "Admin" },
 
-        new PermissionItem { Name = Permission.LegalTeam, Title = "Legal Team" },
+        new PermissionItem { Name = Permission.PiranhaLegalTeam, Title = "Piranha Legal Team" },
         new PermissionItem { Name = Permission.LegalTeamReview, Title = "Review", Category = "Legal Team" },
         new PermissionItem { Name = Permission.LegalTeamDeny, Title = "Deny", Category = "Legal Team" },
 
@@ -49,9 +49,7 @@ public sealed class Module : IModule
         new PermissionItem { Name = Permission.MediaEdit, Title = "Edit Media", Category = "Media" },
         new PermissionItem { Name = Permission.Modules, Title = "List Modules", Category = "Modules" },
 
-        new PermissionItem { Name = Permission.Reviewer, Title = "Reviewer" },
-        new PermissionItem { Name = Permission.ReviewerStep1, Title = "Step 1", Category = "Reviewer" },
-        new PermissionItem { Name = Permission.ReviewerStep2, Title = "Step 2", Category = "Reviewer" },
+        new PermissionItem { Name = Permission.PiranhaReviewer, Title = "PiranhaReviewer" },
 
         new PermissionItem { Name = Permission.Pages, Title = "List Pages", Category = "Pages" },
         new PermissionItem { Name = Permission.PagesAdd, Title = "Add Pages", Category = "Pages" },
@@ -69,7 +67,8 @@ public sealed class Module : IModule
         new PermissionItem { Name = Permission.SitesAdd, Title = "Add Sites", Category = "Sites" },
         new PermissionItem { Name = Permission.SitesDelete, Title = "Delete Sites", Category = "Sites" },
         new PermissionItem { Name = Permission.SitesEdit, Title = "Edit Sites", Category = "Sites" },
-        new PermissionItem { Name = Permission.SitesSave, Title = "Save Sites", Category = "Sites" }
+        new PermissionItem { Name = Permission.SitesSave, Title = "Save Sites", Category = "Sites" },
+        new PermissionItem { Name = Permission.ContentReview, Title = "Review Content", Category = "Workflows"},
     };
 
     /// <summary>
